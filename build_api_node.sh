@@ -1,5 +1,6 @@
 #!/bin/bash
 
+script_directory=$PWD
 cd ..
 current_directory=$PWD
 echo "current direcory $current_directory"
@@ -24,7 +25,7 @@ cp /usr/local/bin/ducatuscoind /usr/lib/node_modules/litecore-node/bin/litecoin-
 
 echo "applying patches"
 /bin/sed -i 's/rpcport: 9332/rpcport: 9690/g' $workdir/node_modules/litecore-node/lib/services/bitcoind.js
-node_files=$current_directory/node_files
+node_files=$script_directory/node_files
 cp $node_files/network.js $workdir/node_modules/litecore-lib/lib/networks.js
 echo "copying config from $node_files"
 cp $node_files/bitcoin.conf $workdir/data/bitcoin.conf
@@ -34,11 +35,11 @@ cp $node_files/bitcoin.conf $workdir/data/ducatuscoin.conf
 echo "installing insight ui"
 cd node_modules
 rm -rf insight-lite-ui
-/usr/bin/git clone https://github.com/DUCATUS-revival/insight-ducatus-ui.git inight-lite-ui
+/usr/bin/git clone https://github.com/DUCATUS-revival/insight-ducatus-ui.git insight-lite-ui
 cd insight-lite-ui
-/usr/bin/npm install bower grunt
-$workdir/node_modules/.bin/bower install
-$workdir/node_modules/.bin/grunt compile
+/usr/bin/npm install
+$workdir/node_modules/insight-lite-ui/node_modules/.bin/bower install
+$workdir/node_modules/insight-lite-ui/node_modules/.bin/grunt compile
 
 echo "--------------"
 echo "build finished"
