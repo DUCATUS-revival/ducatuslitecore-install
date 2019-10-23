@@ -39,7 +39,7 @@ rm -rf insight-lite-ui
 /usr/bin/git clone https://github.com/DUCATUS-revival/insight-ducatus-ui.git insight-lite-ui
 cd insight-lite-ui
 /usr/bin/npm install
-$workdir/node_modules/insight-lite-ui/node_modules/.bin/bower install --allow-root-access
+$workdir/node_modules/insight-lite-ui/node_modules/.bin/bower install --allow-root
 $workdir/node_modules/insight-lite-ui/node_modules/.bin/grunt compile
 
 echo "--------------"
