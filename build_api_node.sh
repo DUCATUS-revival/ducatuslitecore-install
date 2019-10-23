@@ -9,6 +9,7 @@ echo "creating ducatus node"
 cd ducatuslitecore
 workdir=$PWD
 echo "installing insight api"
+/usr/bin/npm install
 /usr/bin/litecore-node install insight-lite-api
 /usr/bin/litecore-node install insight-lite-ui
 cd node_modules/insight-lite-api
