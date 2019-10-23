@@ -11,7 +11,7 @@ workdir=$PWD
 echo "installing insight api"
 /usr/bin/litecore-node install insight-lite-api
 /usr/bin/litecore-node install insight-lite-ui
-cd insight-lite-api
+cd node_modules/insight-lite-api
 /usr/bin/npm install request@2.81.0 --save
 cd $workdir
 
@@ -38,7 +38,7 @@ rm -rf insight-lite-ui
 /usr/bin/git clone https://github.com/DUCATUS-revival/insight-ducatus-ui.git insight-lite-ui
 cd insight-lite-ui
 /usr/bin/npm install
-$workdir/node_modules/insight-lite-ui/node_modules/.bin/bower install
+$workdir/node_modules/insight-lite-ui/node_modules/.bin/bower install --allow-root-access
 $workdir/node_modules/insight-lite-ui/node_modules/.bin/grunt compile
 
 echo "--------------"
